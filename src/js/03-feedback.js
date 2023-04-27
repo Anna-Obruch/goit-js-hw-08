@@ -9,7 +9,7 @@ const refs = {
 
 refs.form.addEventListener('submit', onFormSubmit);
 refs.email.addEventListener('input', throttle(onEmailInput, 500));
-refs.textarea.addEventListener('input', throttle (onTextareaInput, 500));
+refs.textarea.addEventListener('input', throttle(onTextareaInput, 500));
 
 const formData = {
   email: '',
@@ -20,8 +20,8 @@ populateFormData();
 function onFormSubmit(e) {
   e.preventDefault();
   e.currentTarget.reset();
-  localStorage.removeItem(STORAGE_KEY)
-  console.log(formData)
+  localStorage.removeItem(STORAGE_KEY);
+  console.log(formData);
 }
 
 function onEmailInput(e) {
@@ -39,9 +39,9 @@ function save() {
 function populateFormData() {
   const rawData = localStorage.getItem(STORAGE_KEY);
 
-  if (rawData!==null) {
+  if (rawData !== null) {
     const data = JSON.parse(rawData);
-    refs.email.value = data.email
-    refs.textarea.value = data.message
+    refs.email.value = data.email;
+    refs.textarea.value = data.message;
   }
 }
